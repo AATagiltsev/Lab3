@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/controller.js"></script>
+    <style>
+        input.ng-invalid {
+            outline: 2px solid red;
+        }
+    </style>
+</head>
+<body  ng-app="myApp" ng-controller="myController">
+    <h1>Lab 3</h1>
+    <form name="myForm">
+        <select ng-model="prefix" name="myPrefix">
+            <option ng-repeat="p in prefixes">{{p}}</option>
+        </select>
+
+        <input type="text" ng-model="firstName" name="myFirstName" required>
+        <input type="text" ng-model="lastName" name="myLastName" required>
+        <br>
+        <div ng-show="myForm.myFirstName.$valid && myForm.myLastName.$valid">
+            <br/>
+            <textarea cols="50" rows="10">Dear {{prefix}} {{firstName}} {{lastName}},
+
+Sincerly yours,
+
+            </textarea>
+        </div>
+    </form>
+</body>
+</html>
